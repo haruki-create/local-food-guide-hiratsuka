@@ -183,6 +183,21 @@ html, body {
     gap: 16px;
     text-align: center;
 }
+.concept-list {
+    list-style: none; /* デフォルトの黒丸を消す */
+    padding: 0;
+    margin: 8px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.95);
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.concept-list li {
+    font-weight: 600;
+}
 
 /* メインタイトル（h1）の調整：さらに大きく迫力を出す */
 h1.concept-title {
