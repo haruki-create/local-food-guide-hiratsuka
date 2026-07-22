@@ -186,7 +186,7 @@ html, body {
 /* メインタイトル（h1）の調整：さらに大きく迫力を出す */
 h1.concept-title {
     font-family: "Hiragino Mincho ProN", "Yu Mincho", YuMincho, "MS Mincho", "MS PMincho", "Times New Roman", serif;
-    font-size: 3.5rem;
+    font-size: 2.8rem;
     font-weight: 900;
     letter-spacing: 0.15em;
     color: #ffffff;
