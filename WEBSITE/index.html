@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>平塚ローカルストーリー | 大学生が紡ぐ飲食店ガイド</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <h1 class="logo">平塚ローカルストーリー</h1>
+            <nav class="nav">
+                <ul>
+                    <li><a href="#concept">ホーム</a></li>
+                    <li><a href="#shops">特集</a></li>
+                    <li><a href="#shops">エリア</a></li>
+                    <li><a href="#" class="btn-post">投稿する</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- ヒーローセクション -->
+        <section class="hero js-scroll-anim">
+            <div class="hero-content">
+                <h2>検索では見つからない、<br>平塚の「物語」を食べに行こう。</h2>
+                <p>大学生による、大学生のためのローカル飲食店ガイド</p>
+            </div>
+        </section>
+
+        <!-- コンセプトセクション -->
+        <section id="concept" class="section-padding js-scroll-anim">
+            <div class="container">
+                <h2 class="section-title">Concept</h2>
+                <p class="concept-text">
+                    大手サイトの「点数」や「カタログ」には載っていない、店主の想いや街の温もり。<br>
+                    チェーン店では味わえない、平塚のディープな魅力を私たち大学生の目線でお届けします。
+                </p>
+            </div>
+        </section>
+
+        <!-- ピックアップ店舗セクション -->
+        <section id="shops" class="section-padding section-bg js-scroll-anim">
+            <div class="container">
+                <h2 class="section-title">今日の「エモ飯」ピックアップ</h2>
+                
+                <div class="shop-grid">
+                    <!-- 店舗1 -->
+                    <article class="shop-card js-scroll-anim">
+                        <div class="shop-img img-zoro"></div>
+                        <div class="shop-info">
+                            <h3>洋食 ゾロ</h3>
+                            <p>圧倒的なボリュームと懐かしい味が学生の胃袋を掴む、長年愛される老舗洋食店。</p>
+                            <span class="distance">📍 平塚駅から徒歩約15分</span>
+                        </div>
+                    </article>
+
+                    <!-- 店舗2 -->
+                    <article class="shop-card js-scroll-anim">
+                        <div class="shop-img img-raokyo"></div>
+                        <div class="shop-info">
+                            <h3>老郷 本店</h3>
+                            <p>酸味の効いた白いスープが唯一無二。地元民に愛され続ける平塚独自のソウルフード。</p>
+                            <span class="distance">📍 平塚駅から徒歩約3分</span>
+                        </div>
+                    </article>
+
+                    <!-- 店舗3 -->
+                    <article class="shop-card js-scroll-anim">
+                        <div class="shop-img img-ametooto"></div>
+                        <div class="shop-info">
+                            <h3>茶室 雨ト音</h3>
+                            <p>自家製スイーツと洗練された空間で、日常の喧騒を忘れてチルできる隠れ家。</p>
+                            <span class="distance">📍 平塚駅南口から徒歩約10分</span>
+                        </div>
+                    </article>
+
+                    <!-- 店舗4 -->
+                    <article class="shop-card js-scroll-anim">
+                        <div class="shop-img img-hobo"></div>
+                        <div class="shop-info">
+                            <h3>HOBO RECORD CAFE</h3>
+                            <p>こだわりのコーヒーとアナログレコードの音色に深く浸れる、大人の文化空間。</p>
+                            <span class="distance">📍 平塚駅南口から徒歩約3分</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 平塚ローカルストーリー プロジェクト</p>
+        </div>
+    </footer>
+
+    <script>
+        // スクロールして要素が画面に入るたびに「何度でも」アニメーションが繰り返される処理
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    // 画面に入ったらクラスを付与してアニメーション実行
+                    entry.target.classList.add('is-active');
+                } else {
+                    // 画面から出たらクラスを外す（再度入った時にアニメーションさせるため）
+                    entry.target.classList.remove('is-active');
+                }
+            });
+        }, {
+            rootMargin: '0px 0px -15% 0px', // 画面の下から15%入ったところで発火
+            threshold: 0
+        });
+
+        // js-scroll-animクラスを持つ全ての要素を監視
+        document.querySelectorAll('.js-scroll-anim').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
