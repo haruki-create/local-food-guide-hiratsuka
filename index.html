@@ -11,7 +11,6 @@
     <!-- ヘッダーとメニューボタン -->
     <header class="header">
         <div class="header-inner">
-            <!-- ロゴやサイト名（スクロールしても追従させる場合はここに固定） -->
             <button id="menu-btn" class="menu-btn">
                 <span class="menu-icon"></span>
                 <span class="menu-text">Menu</span>
@@ -19,7 +18,7 @@
         </div>
     </header>
 
-    <!-- 全画面メニュー（初期状態は非表示） -->
+    <!-- 全画面メニュー -->
     <nav id="full-menu" class="full-menu">
         <div class="menu-header">
             <button id="close-btn" class="close-btn">
@@ -64,7 +63,7 @@
     <!-- メインコンテンツ -->
     <main class="container">
         
-        <!-- サイトコンセプト（スクリーンショット1枚目のイメージ） -->
+        <!-- サイトコンセプト -->
         <section class="concept js-scroll-target">
             <h1 class="concept-title">いい店には、いい店長がいる。<br>ファンと作る、平塚の食文化。<br>愛されるまちは、スペックよりストーリー。</h1>
             <p class="concept-text">
@@ -72,7 +71,7 @@
             </p>
         </section>
 
-        <!-- お店カード一覧（スクリーンショット2枚目のイメージ） -->
+        <!-- お店カード一覧 -->
         <div class="card-list">
             
             <!-- カード1 -->
@@ -81,8 +80,7 @@
                     📖 平塚駅南口｜カフェ・喫茶
                 </div>
                 <div class="card-image">
-                    <!-- ここに写真を挿入 -->
-                    <span class="photo-placeholder">PHOTO</span>
+                    <img src="shop1.jpg" alt="こだわりの自家焙煎コーヒーのマスター">
                 </div>
                 <div class="card-content">
                     <h2 class="shop-title">今日も明日も「おいしさ」追求、こだわりの自家焙煎コーヒー（仮）</h2>
@@ -92,7 +90,7 @@
                             <span class="tag plain">#コーヒー</span>
                         </div>
                         <div class="author-icon">
-                            <!-- ライターのアイコン画像を挿入 -->
+                            <img src="writer1.jpg" alt="ライターアイコン">
                         </div>
                     </div>
                 </div>
@@ -104,7 +102,7 @@
                     📖 平塚駅北口｜定食・食堂
                 </div>
                 <div class="card-image">
-                    <span class="photo-placeholder">PHOTO</span>
+                    <img src="shop2.jpg" alt="深夜まで語れる学生のオアシス">
                 </div>
                 <div class="card-content">
                     <h2 class="shop-title">美味しいから、また食べたい。深夜まで語れる学生のオアシス（仮）</h2>
@@ -115,6 +113,7 @@
                             <span class="tag plain">#店主が最高</span>
                         </div>
                         <div class="author-icon">
+                            <img src="writer2.jpg" alt="ライターアイコン">
                         </div>
                     </div>
                 </div>
@@ -132,15 +131,15 @@
 
         menuBtn.addEventListener('click', () => {
             fullMenu.classList.add('is-open');
-            document.body.style.overflow = 'hidden'; // 背景のスクロールを止める
+            document.body.style.overflow = 'hidden';
         });
 
         closeBtn.addEventListener('click', () => {
             fullMenu.classList.remove('is-open');
-            document.body.style.overflow = ''; // スクロール再開
+            document.body.style.overflow = '';
         });
 
-        /* スクロールアニメーション（セーブ1） */
+        /* スクロールアニメーション */
         const targets = document.querySelectorAll('.js-scroll-target');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
