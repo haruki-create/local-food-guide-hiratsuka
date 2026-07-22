@@ -3,143 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>地元食道ガイド平塚</title>
+    <title>平塚メシ物語（学生版）</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- ヘッダーとメニューボタン -->
     <header class="header">
         <div class="header-inner">
-            <button id="menu-btn" class="menu-btn">
-                <span class="menu-icon"></span>
-                <span class="menu-text">Menu</span>
-            </button>
+            <h1 class="site-title">平塚メシ物語</h1>
+            <p class="site-subtitle">学生版</p>
         </div>
     </header>
 
-    <!-- 全画面メニュー -->
-    <nav id="full-menu" class="full-menu">
-        <div class="menu-header">
-            <button id="close-btn" class="close-btn">
-                <span class="close-icon">×</span>
-                <span class="close-text">Close</span>
-            </button>
-        </div>
-        <div class="menu-content">
-            <section class="menu-section">
-                <h2>Article <span>/ 記事一覧</span></h2>
-                <h3 class="menu-subtitle">🔍 キーワードで探す</h3>
-                <div class="search-box">
-                    <input type="text" placeholder="検索...">
-                    <button class="search-btn">検索</button>
+    <main class="main-content">
+        <section class="content-section animate-box">
+            <div class="section-header">
+                <span class="section-tag">Feature 01</span>
+                <h2 class="section-title">ガッツリ系メシ</h2>
+            </div>
+            <div class="section-body">
+                <p class="section-text">
+                    講義のあとにぴったりな、ボリューム満点でコスパ抜群のローカルフードをご紹介。お腹も心も満たされる至福の一皿を体験しよう。
+                </p>
+                <div class="card-grid">
+                    <div class="food-card">
+                        <div class="card-image-placeholder"></div>
+                        <h3 class="card-title">名物スタミナ丼</h3>
+                        <p class="card-desc">特製タレが食欲をそそる、学生必食の定番メニュー。</p>
+                    </div>
+                    <div class="food-card">
+                        <div class="card-image-placeholder"></div>
+                        <h3 class="card-title">特盛カルビ定食</h3>
+                        <p class="card-desc">リーズナブルに肉を喰らうならここしかない。</p>
+                    </div>
                 </div>
-            </section>
-            
-            <section class="menu-section">
-                <h3 class="menu-subtitle"># タグから探す</h3>
-                <div class="tag-cloud">
-                    <span class="tag outline">#一人飯</span>
-                    <span class="tag outline">#多国籍料理</span>
-                    <span class="tag outline">#昭和</span>
-                    <span class="tag outline">#コーヒー</span>
-                    <span class="tag outline">#眺めがいい</span>
-                    <span class="tag outline">#オシャレ</span>
-                    <span class="tag outline">#しっぽり</span>
-                </div>
-            </section>
-
-            <section class="menu-section">
-                <h3 class="menu-subtitle">🗺️ まちから探す</h3>
-                <div class="tag-cloud">
-                    <span class="tag outline">平塚駅南口</span>
-                    <span class="tag outline">平塚駅北口</span>
-                    <span class="tag outline">その他</span>
-                </div>
-            </section>
-        </div>
-    </nav>
-
-    <!-- メインコンテンツ -->
-    <main class="container">
-        
-        <!-- サイトコンセプト -->
-        <section class="concept js-scroll-target">
-            <h1 class="concept-title">いい店には、いい店長がいる。<br>ファンと作る、平塚の食文化。<br>愛されるまちは、スペックよりストーリー。</h1>
-            <p class="concept-text">
-                「地元食道ガイド平塚」は、平塚の飲食店オーナーや学生のみなさんと共に、その店ならではのホットな情報を共有し、ゆるくつながりながら、ローカルの食文化を発信していく「ヒューマングルメサイト」です！
-            </p>
+            </div>
         </section>
 
-        <!-- お店カード一覧 -->
-        <div class="card-list">
-            
-            <!-- カード1 -->
-            <article class="card js-scroll-target">
-                <div class="card-area-info">
-                    📖 平塚駅南口｜カフェ・喫茶
-                </div>
-                <div class="card-image">
-                    <img src="shop1.jpg" alt="こだわりの自家焙煎コーヒーのマスター">
-                </div>
-                <div class="card-content">
-                    <h2 class="shop-title">今日も明日も「おいしさ」追求、こだわりの自家焙煎コーヒー（仮）</h2>
-                    <div class="card-footer">
-                        <div class="tags">
-                            <span class="tag plain">#かっこいい</span>
-                            <span class="tag plain">#コーヒー</span>
-                        </div>
-                        <div class="author-icon">
-                            <img src="writer1.jpg" alt="ライターアイコン">
-                        </div>
+        <section class="content-section animate-box">
+            <div class="section-header">
+                <span class="section-tag">Feature 02</span>
+                <h2 class="section-title">隠れ家カフェ</h2>
+            </div>
+            <div class="section-body">
+                <p class="section-text">
+                    静かに読書を楽しんだり、友人と語り合ったりできる、平塚のおしゃれな隠れ家スポット。こだわりの珈琲とともに特別な時間を。
+                </p>
+                <div class="card-grid">
+                    <div class="food-card">
+                        <div class="card-image-placeholder"></div>
+                        <h3 class="card-title">自家焙煎珈琲 凪</h3>
+                        <p class="card-desc">一杯ずつ丁寧に淹れられた香り高いコーヒー。</p>
+                    </div>
+                    <div class="food-card">
+                        <div class="card-image-placeholder"></div>
+                        <h3 class="card-title">路地裏ベイク</h3>
+                        <p class="card-desc">手作りの焼き菓子と温かい雰囲気が魅力の空間。</p>
                     </div>
                 </div>
-            </article>
-
-            <!-- カード2 -->
-            <article class="card js-scroll-target">
-                <div class="card-area-info">
-                    📖 平塚駅北口｜定食・食堂
-                </div>
-                <div class="card-image">
-                    <img src="shop2.jpg" alt="深夜まで語れる学生のオアシス">
-                </div>
-                <div class="card-content">
-                    <h2 class="shop-title">美味しいから、また食べたい。深夜まで語れる学生のオアシス（仮）</h2>
-                    <div class="card-footer">
-                        <div class="tags">
-                            <span class="tag plain">#深夜営業</span>
-                            <span class="tag plain">#ガッツリ</span>
-                            <span class="tag plain">#店主が最高</span>
-                        </div>
-                        <div class="author-icon">
-                            <img src="writer2.jpg" alt="ライターアイコン">
-                        </div>
-                    </div>
-                </div>
-            </article>
-
-        </div>
+            </div>
+        </section>
     </main>
 
-    <!-- スクリプト -->
+    <footer class="footer">
+        <p class="footer-text">&copy; 2026 平塚メシ物語（学生版）</p>
+    </footer>
+
     <script>
-        const menuBtn = document.getElementById('menu-btn');
-        const closeBtn = document.getElementById('close-btn');
-        const fullMenu = document.getElementById('full-menu');
+        // スクロールして要素が画面に入るたびにアニメーションクラスをつけ外しするIntersection Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px 0px -10% 0px',
+            threshold: 0.1
+        };
 
-        menuBtn.addEventListener('click', () => {
-            fullMenu.classList.add('is-open');
-            document.body.style.overflow = 'hidden';
-        });
-
-        closeBtn.addEventListener('click', () => {
-            fullMenu.classList.remove('is-open');
-            document.body.style.overflow = '';
-        });
-
-        const targets = document.querySelectorAll('.js-scroll-target');
-        const observer = new IntersectionObserver((entries) => {
+        const observer = new IntersectionObserver((entries, observer) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('is-active');
@@ -147,11 +85,12 @@
                     entry.target.classList.remove('is-active');
                 }
             });
-        }, { threshold: 0.1 });
+        }, observerOptions);
 
-        targets.forEach(target => {
-            observer.observe(target);
+        document.querySelectorAll('.animate-box').forEach(section => {
+            observer.observe(section);
         });
     </script>
+
 </body>
 </html>

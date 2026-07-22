@@ -1,319 +1,158 @@
 @charset "UTF-8";
 
-/* ========================================
-   リセット & ベース設定
-   ======================================== */
-* {
+/* ==========================================
+   リセット & ベーススタイル
+   ========================================== */
+*, *::before, *::after {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
-/* 暖色照明の画像を背景に固定し、文字が読みやすいよう暗めのフィルターを重ねる設定 */
-html, body {
-    background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url('background.jpg') no-repeat center center fixed !important;
-    background-size: cover !important;
-    color: #ffffff !important;
-    font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-    line-height: 1.7;
-    -webkit-text-size-adjust: 100%;
-    width: 100%;
-    overflow-x: hidden;
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #2c3e50;
+    background-color: #fcfcfc;
+    line-height: 1.6;
 }
 
-/* ========================================
-   ヘッダーとメニューボタン
-   ======================================== */
+/* ==========================================
+   ヘッダー
+   ========================================== */
 .header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 50;
-    pointer-events: none;
+    background-color: #ffffff;
+    border-bottom: 1px solid #eaeaea;
+    padding: 3rem 1.5rem;
+    text-align: center;
 }
 
-.header-inner {
-    max-width: 680px;
-    margin: 0 auto;
-    padding: 12px 16px;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.menu-btn, .close-btn {
-    pointer-events: auto;
-    background: rgba(255, 255, 255, 0.9);
-    border: none;
-    border-radius: 12px;
-    padding: 8px 14px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    color: #b35424;
-}
-
-.menu-icon::before {
-    content: "🔍≡";
-    font-size: 1.1rem;
-    font-weight: bold;
-}
-
-.menu-text, .close-text {
-    font-size: 0.65rem;
+.site-title {
+    font-size: 2rem;
     font-weight: 700;
-    margin-top: 4px;
+    letter-spacing: 0.05em;
+    color: #1a1a1a;
 }
 
-/* ========================================
-   全画面メニュー
-   ======================================== */
-.full-menu {
-    position: fixed;
-    inset: 0;
-    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('background.jpg') no-repeat center center !important;
-    background-size: cover !important;
-    color: #ffffff;
-    z-index: 100;
-    padding: 20px;
-    overflow-y: auto;
+.site-subtitle {
+    font-size: 0.95rem;
+    color: #7f8c8d;
+    margin-top: 0.5rem;
+    letter-spacing: 0.1em;
+}
+
+/* ==========================================
+   メインコンテンツ & セクション余白の論理的設計
+   （セクション自身の余白と末尾の余白の重複を防ぐ構造）
+   ========================================== */
+.main-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+}
+
+.content-section {
+    background: #ffffff;
+    border: 1px solid #eaeaea;
+    border-radius: 12px;
+    padding: 3rem;
+    margin-bottom: 3rem; /* セクション間の余白を一元管理 */
+    
+    /* アニメーション初期状態 */
     opacity: 0;
-    visibility: hidden;
-    transform: translateY(-20px);
-    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    transform: translateY(30px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.full-menu.is-open {
+.content-section.is-active {
     opacity: 1;
-    visibility: visible;
     transform: translateY(0);
 }
 
-.menu-header {
-    display: flex;
-    justify-content: flex-end;
-    margin-bottom: 20px;
+.content-section:last-child {
+    margin-bottom: 0; /* 最後のセクションの余白を消して重複・無駄な空きを防止 */
 }
 
-.menu-section {
-    margin-bottom: 30px;
+/* ==========================================
+   セクション内パーツ
+   ========================================== */
+.section-header {
+    margin-bottom: 1.5rem;
 }
 
-.menu-section h2 {
-    font-size: 1.5rem;
-    font-weight: 900;
-    border-bottom: 2px solid #ffffff;
-    padding-bottom: 8px;
-    margin-bottom: 15px;
-}
-
-.menu-section h2 span {
-    font-size: 0.9rem;
-    font-weight: normal;
-    opacity: 0.8;
-}
-
-.menu-subtitle {
-    font-size: 1rem;
-    font-weight: 700;
-    margin-bottom: 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-    padding-bottom: 4px;
-}
-
-.search-box {
-    display: flex;
-    gap: 8px;
-}
-
-.search-box input {
-    flex: 1;
-    padding: 10px 12px;
-    border: none;
-    border-radius: 8px;
-    background: #ffffff;
-    color: #1a1a1a;
-    font-size: 0.95rem;
-}
-
-.search-btn {
-    background: #1a1a1a;
-    color: #ffffff;
-    border: none;
-    padding: 10px 16px;
-    border-radius: 8px;
-    font-weight: bold;
-}
-
-.tag-cloud {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.tag.outline {
-    background: transparent;
-    border: 1px solid #ffffff;
-    color: #ffffff;
-    padding: 5px 12px;
-    border-radius: 20px;
+.section-tag {
+    display: inline-block;
     font-size: 0.8rem;
     font-weight: 600;
-}
-
-/* ========================================
-   メインコンテンツ & スマホ画像自動調整
-   ======================================== */
-.container {
-    max-width: 680px;
-    width: 100%;
-    margin: 0 auto;
-    padding: 80px 16px 60px 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-}
-
-.concept {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-}
-
-.concept-title {
-    font-size: 1.4rem;
-    font-weight: 900;
-    line-height: 1.6;
-    letter-spacing: 0.05em;
-    word-break: keep-all;
-    overflow-wrap: break-word;
-    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-.concept-text {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.95);
-    line-height: 1.8;
-    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
-}
-
-.card-list {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    width: 100%;
-}
-
-.card {
-    background: rgba(0, 0, 0, 0.35);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 12px;
-    padding: 16px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    width: 100%;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
-}
-
-.card-area-info {
-    font-size: 0.85rem;
-    font-weight: bold;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-/* スマホ対応画像サイズ自動調整 */
-.card-image {
-    width: 100%;
-    max-width: 100%;
-    aspect-ratio: 4 / 3;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 8px;
-    overflow: hidden;
-    position: relative;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.card-image img {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    aspect-ratio: 4 / 3;
-    object-fit: cover;
-    object-position: center 30%;
-    display: block;
-}
-
-.shop-title {
-    font-size: 1.15rem;
-    font-weight: 800;
-    line-height: 1.5;
-    margin-top: 4px;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
-}
-
-.card-footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 4px;
-}
-
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    flex: 1;
-}
-
-.tag.plain {
-    font-size: 0.8rem;
-    color: #ffffff;
-    background-color: rgba(0, 0, 0, 0.6);
-    border: 1px solid rgba(255, 255, 255, 0.4);
-    padding: 4px 10px;
+    color: #e67e22;
+    background-color: #fdf5ec;
+    padding: 0.25rem 0.75rem;
     border-radius: 4px;
-    font-weight: bold;
+    margin-bottom: 0.5rem;
+    letter-spacing: 0.05em;
 }
 
-/* アイコン自動調整 */
-.author-icon {
-    width: 40px;
-    height: 40px;
-    min-width: 40px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.2);
-    flex-shrink: 0;
-    margin-left: 12px;
-    border: 2px solid #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    overflow: hidden;
-    position: relative;
+.section-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #2c3e50;
 }
 
-.author-icon img {
+.section-body {
+    /* 中身の末尾の余白をここに限定して管理 */
+}
+
+.section-text {
+    font-size: 1rem;
+    color: #555555;
+    margin-bottom: 2rem; /* 中身の末尾の余白 */
+}
+
+/* カードグリッド */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.food-card {
+    background-color: #fafafa;
+    border: 1px solid #f0f0f0;
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.card-image-placeholder {
     width: 100%;
-    max-width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
+    height: 140px;
+    background-color: #e0e0e0;
+    border-radius: 6px;
+    margin-bottom: 1rem;
 }
 
-/* ========================================
-   スクロールアニメーション設定
-   ======================================== */
-.js-scroll-target {
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+.card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
 }
 
-.js-scroll-target.is-active {
-    opacity: 1;
-    transform: translateY(0);
+.card-desc {
+    font-size: 0.9rem;
+    color: #666666;
+    margin-bottom: 0; /* 末尾の余白をクリアして重複を防ぐ */
+}
+
+/* ==========================================
+   フッター
+   ========================================== */
+.footer {
+    background-color: #ffffff;
+    border-top: 1px solid #eaeaea;
+    text-align: center;
+    padding: 2rem 1.5rem;
+}
+
+.footer-text {
+    font-size: 0.85rem;
+    color: #95a5a6;
 }
