@@ -10,8 +10,8 @@
 }
 
 html, body {
-    background-color: #EA5532 !important;
-    color: #ffffff !important;
+    background-color: #FBF7F0 !important; /* 暖色系の照明のような柔らかな光のカラー */
+    color: #332B25 !important; /* 背景に馴染む温かみのあるダークブラウンの文字色 */
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
     line-height: 1.7;
     -webkit-text-size-adjust: 100%;
@@ -41,7 +41,7 @@ html, body {
 
 .menu-btn, .close-btn {
     pointer-events: auto;
-    background: #ffffff;
+    background: #332B25;
     border: none;
     border-radius: 12px;
     padding: 8px 14px;
@@ -50,8 +50,8 @@ html, body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-    color: #EA5532;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    color: #FBF7F0;
 }
 
 .menu-icon::before {
@@ -72,8 +72,8 @@ html, body {
 .full-menu {
     position: fixed;
     inset: 0;
-    background-color: #EA5532;
-    color: #ffffff;
+    background-color: #FBF7F0;
+    color: #332B25;
     z-index: 100;
     padding: 20px;
     overflow-y: auto;
@@ -102,7 +102,7 @@ html, body {
 .menu-section h2 {
     font-size: 1.5rem;
     font-weight: 900;
-    border-bottom: 2px solid #ffffff;
+    border-bottom: 2px solid #332B25;
     padding-bottom: 8px;
     margin-bottom: 15px;
 }
@@ -110,14 +110,14 @@ html, body {
 .menu-section h2 span {
     font-size: 0.9rem;
     font-weight: normal;
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 .menu-subtitle {
     font-size: 1rem;
     font-weight: 700;
     margin-bottom: 12px;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
+    border-bottom: 1px solid rgba(51, 43, 37, 0.2);
     padding-bottom: 4px;
 }
 
@@ -129,16 +129,16 @@ html, body {
 .search-box input {
     flex: 1;
     padding: 10px 12px;
-    border: none;
+    border: 1px solid rgba(51, 43, 37, 0.2);
     border-radius: 8px;
     background: #ffffff;
-    color: #1a1a1a;
+    color: #332B25;
     font-size: 0.95rem;
 }
 
 .search-btn {
-    background: #1a1a1a;
-    color: #ffffff;
+    background: #332B25;
+    color: #FBF7F0;
     border: none;
     padding: 10px 16px;
     border-radius: 8px;
@@ -153,8 +153,8 @@ html, body {
 
 .tag.outline {
     background: transparent;
-    border: 1px solid #ffffff;
-    color: #ffffff;
+    border: 1px solid #332B25;
+    color: #332B25;
     padding: 5px 12px;
     border-radius: 20px;
     font-size: 0.8rem;
@@ -191,7 +191,7 @@ html, body {
 
 .concept-text {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(51, 43, 37, 0.8);
     line-height: 1.8;
 }
 
@@ -213,7 +213,7 @@ html, body {
 .card-area-info {
     font-size: 0.85rem;
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(51, 43, 37, 0.7);
 }
 
 /* スマホ対応画像サイズ自動調整 */
@@ -221,11 +221,11 @@ html, body {
     width: 100%;
     max-width: 100%;
     aspect-ratio: 4 / 3;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(51, 43, 37, 0.1);
     border-radius: 8px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
 }
 
 .card-image img {
@@ -261,8 +261,8 @@ html, body {
 
 .tag.plain {
     font-size: 0.8rem;
-    color: #EA5532;
-    background-color: #ffffff;
+    color: #FBF7F0;
+    background-color: #332B25;
     padding: 4px 10px;
     border-radius: 4px;
     font-weight: bold;
@@ -274,11 +274,11 @@ html, body {
     height: 40px;
     min-width: 40px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(51, 43, 37, 0.1);
     flex-shrink: 0;
     margin-left: 12px;
-    border: 2px solid #ffffff;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border: 2px solid #332B25;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
     overflow: hidden;
     position: relative;
 }
