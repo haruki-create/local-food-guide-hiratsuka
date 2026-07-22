@@ -184,8 +184,9 @@ html, body {
 }
 
 /* メインタイトル（h1）の調整：和風・大文字強調 */
+/* メインタイトル（h1）の調整：全環境で確実に和風・大文字強調 */
 h1.concept-title {
-    font-family: "Hiragino Mincho ProN", "Yu Mincho", YuMincho, "HGMinchoE", "MS Mincho", serif;
+    font-family: "Hiragino Mincho ProN", "Yu Mincho", YuMincho, "MS Mincho", "MS PMincho", "Times New Roman", serif;
     font-size: 2.2rem;
     font-weight: 900;
     letter-spacing: 0.15em;
