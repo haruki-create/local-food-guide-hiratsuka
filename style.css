@@ -9,12 +9,14 @@
     box-sizing: border-box;
 }
 
-body {
+html, body {
+    background-color: #EA5532 !important; /* 背景を確実に朱色に固定 */
+    color: #ffffff;
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-    color: #ffffff; /* 朱色背景に合わせて文字を白に */
-    background-color: #EA5532; /* メイン背景を朱色に設定 */
     line-height: 1.7;
     -webkit-text-size-adjust: 100%;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 /* ========================================
@@ -48,24 +50,14 @@ body {
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15); /* 影をモダンに調整 */
-    transition: transform 0.1s;
-    color: #EA5532; /* アイコンと文字を朱色に */
-}
-
-.menu-btn:active, .close-btn:active {
-    transform: translate(0, 2px);
-    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
-}
-
-.menu-icon, .close-icon {
-    font-size: 1.1rem;
-    font-weight: bold;
-    line-height: 1;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    color: #EA5532;
 }
 
 .menu-icon::before {
     content: "🔍≡";
+    font-size: 1.1rem;
+    font-weight: bold;
 }
 
 .menu-text, .close-text {
@@ -170,12 +162,13 @@ body {
 }
 
 /* ========================================
-   メインコンテンツ
+   メインコンテンツ & スマホ画像自動調整
    ======================================== */
 .container {
     max-width: 680px;
+    width: 100%;
     margin: 0 auto;
-    padding: 80px 16px 60px 16px; /* スマホで窮屈にならないよう余白調整 */
+    padding: 80px 16px 60px 16px;
     display: flex;
     flex-direction: column;
     gap: 50px;
@@ -206,6 +199,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 40px;
+    width: 100%;
 }
 
 .card {
@@ -222,24 +216,26 @@ body {
     color: rgba(255, 255, 255, 0.8);
 }
 
-/* 画像エリア */
+/* スマホで確実に自動調整される画像枠 */
 .card-image {
     width: 100%;
+    max-width: 100%;
     aspect-ratio: 4 / 3;
-    background-color: rgba(255, 255, 255, 0.2); /* 画像読み込み前の仮背景 */
+    background-color: rgba(255, 255, 255, 0.2);
     border-radius: 8px;
     overflow: hidden;
     position: relative;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* 画像に少し影をつけてリッチに */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .card-image img {
     width: 100%;
     height: 100%;
+    max-width: 100%;
+    height: auto;
     object-fit: cover;
-    object-position: center 30%; /* 人物の顔が切れにくいように少し上部にピントを合わせる */
+    object-position: center 30%;
     display: block;
-    color: transparent; /* リンク切れ時のテキストを隠す */
 }
 
 .shop-title {
@@ -247,6 +243,7 @@ body {
     font-weight: 800;
     line-height: 1.5;
     margin-top: 4px;
+    word-break: auto-phrase;
 }
 
 .card-footer {
@@ -266,18 +263,19 @@ body {
 .tag.plain {
     font-size: 0.8rem;
     color: #EA5532;
-    background-color: #ffffff; /* 朱色背景に映えるよう白背景のタグに */
+    background-color: #ffffff;
     padding: 4px 10px;
     border-radius: 4px;
     font-weight: bold;
 }
 
-/* アイコン崩れ防止・リンク切れ対策 */
+/* アイコン自動調整 */
 .author-icon {
     width: 40px;
     height: 40px;
+    min-width: 40px;
     border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.3); /* 画像がない時は半透明の白丸になる */
+    background-color: rgba(255, 255, 255, 0.3);
     flex-shrink: 0;
     margin-left: 12px;
     border: 2px solid #ffffff;
@@ -289,12 +287,9 @@ body {
 .author-icon img {
     width: 100%;
     height: 100%;
+    max-width: 100%;
     object-fit: cover;
     display: block;
-    color: transparent; /* リンク切れ時の青い？マークとテキストを完全に隠す */
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
 }
 
 /* ========================================
