@@ -181,6 +181,7 @@ html, body {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    text-align: center;
 }
 
 /* メインタイトル（h1）の調整：さらに大きく迫力を出す */
