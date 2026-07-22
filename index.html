@@ -124,7 +124,6 @@
 
     <!-- スクリプト -->
     <script>
-        /* メニューの開閉ロジック */
         const menuBtn = document.getElementById('menu-btn');
         const closeBtn = document.getElementById('close-btn');
         const fullMenu = document.getElementById('full-menu');
@@ -139,7 +138,6 @@
             document.body.style.overflow = '';
         });
 
-        /* スクロールアニメーション */
         const targets = document.querySelectorAll('.js-scroll-target');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
