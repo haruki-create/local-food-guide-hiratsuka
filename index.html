@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>平塚メシ物語（学生版）</title>
+    <title>地元食道ガイド平塚</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -65,7 +65,8 @@
         
         <!-- サイトコンセプト -->
         <section class="concept js-scroll-target">
-            <h1 class="concept-title">いい店には、いい店長がいる。<br>ファンと作る、平塚の食文化。<br>愛されるまちは、スペックよりストーリー。</h1>
+            <h1 class="concept-title">平塚メシ物語（学生版）</h1>
+            <h2 class="concept-title">いい店には、いい店長がいる。<br>ファンと作る、平塚の食文化。<br>愛されるまちは、スペックよりストーリー。</h2>
             <p class="concept-text">
                 「地元食道ガイド平塚」は、平塚の飲食店オーナーや学生のみなさんと共に、その店ならではのホットな情報を共有し、ゆるくつながりながら、ローカルの食文化を発信していく「ヒューマングルメサイト」です！
             </p>
@@ -124,6 +125,7 @@
 
     <!-- スクリプト -->
     <script>
+        /* メニューの開閉ロジック */
         const menuBtn = document.getElementById('menu-btn');
         const closeBtn = document.getElementById('close-btn');
         const fullMenu = document.getElementById('full-menu');
@@ -138,6 +140,7 @@
             document.body.style.overflow = '';
         });
 
+        /* スクロールアニメーション */
         const targets = document.querySelectorAll('.js-scroll-target');
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
