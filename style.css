@@ -11,62 +11,264 @@
 
 body {
     font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
-    color: #333;
-    background-color: #faf9f6;
-    line-height: 1.7;
-    padding: 40px 20px;
-    
-    /* ページ全体の大きなブロック間の余白をgapで管理（マージン相殺防止） */
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
+    color: #1a1a1a;
+    background-color: #f7f7f7; /* ロールモデルに合わせたライトグレーの背景 */
+    line-height: 1.8;
 }
 
 /* ========================================
-   ヘッダー
+   ヘッダーとメニューボタン（右上に固定）
    ======================================== */
 .header {
+    position: fixed;
+    top: 0;
     width: 100%;
+    z-index: 50;
+    pointer-events: none; /* ボタン以外はクリック貫通させる */
+}
+
+.header-inner {
     max-width: 680px;
     margin: 0 auto;
-    text-align: center;
-    
-    /* ヘッダー内のタイトルとサブタイトルの余白をgapで管理 */
+    padding: 15px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+/* メニューボタンのデザイン */
+.menu-btn, .close-btn {
+    pointer-events: auto;
+    background: #fff;
+    border: 2px solid #1a1a1a;
+    border-radius: 12px;
+    padding: 8px 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 2px 2px 0px rgba(0,0,0,1); /* 少しポップな影 */
+    transition: transform 0.1s;
+}
+
+.menu-btn:active, .close-btn:active {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+}
+
+.menu-icon, .close-icon {
+    font-size: 1.2rem;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.menu-icon::before {
+    content: "🔍≡"; /* 虫眼鏡とハンバーガーメニューの複合 */
+}
+
+.menu-text, .close-text {
+    font-size: 0.7rem;
+    font-weight: 700;
+    margin-top: 4px;
+}
+
+/* ========================================
+   全画面メニュー（オーバーレイ）
+   ======================================== */
+.full-menu {
+    position: fixed;
+    inset: 0;
+    background-color: #fff;
+    z-index: 100;
+    padding: 20px;
+    overflow-y: auto;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.full-menu.is-open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.menu-header {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 30px;
+}
+
+.menu-section {
+    margin-bottom: 40px;
+}
+
+.menu-section h2 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.menu-section h2 span {
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.menu-subtitle {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+/* 検索ボックス */
+.search-box {
+    display: flex;
+    gap: 10px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #f5f5f5;
+    font-size: 1rem;
+}
+
+.search-btn {
+    background: #1a1a1a;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* タグクラウド */
+.tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tag.outline {
+    background: transparent;
+    border: 1px solid #1a1a1a;
+    color: #1a1a1a;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+/* ========================================
+   メインコンテンツ
+   ======================================== */
+.container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 80px 20px 40px 20px; /* 上部はメニューボタン用に空ける */
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* セクション間の大きな余白 */
+}
+
+/* コンセプトエリア */
+.concept {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.concept-title {
+    font-size: 1.6rem;
+    font-weight: 900;
+    line-height: 1.6;
+    letter-spacing: 0.05em;
+}
+
+.concept-text {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+/* カードリスト */
+.card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}
+
+/* カードのデザイン */
+.card {
+    background: transparent;
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-.site-title {
-    font-size: 1.8rem;
-    font-weight: 700;
-    letter-spacing: 0.05em;
-}
-
-.site-subtitle {
-    font-size: 0.9rem;
-    color: #666;
-}
-
-/* ========================================
-   メインコンテナ・カードレイアウト
-   ======================================== */
-.container {
-    width: 100%;
-    max-width: 680px;
-    margin: 0 auto;
-    
-    /* カード同士の余白をgapで管理（末尾の余白重複を防止） */
+.card-area-info {
+    font-size: 0.85rem;
+    font-weight: bold;
+    color: #555;
     display: flex;
-    flex-direction: column;
-    gap: 32px;
+    align-items: center;
 }
 
-.card {
-    background: #fff;
-    border-radius: 12px;
+.card-image {
+    width: 100%;
+    aspect-ratio: 4 / 3; /* 綺麗な横長比率を維持 */
+    background-color: #e5e3dc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+    font-weight: bold;
+    border-radius: 4px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.shop-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 5px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    flex: 1;
+}
+
+.tag.plain {
+    font-size: 0.85rem;
+    color: #555;
+    font-weight: bold;
+}
+
+/* ライターアイコン（丸形） */
+.author-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    flex-shrink: 0;
+    margin-left: 15px;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 /* ========================================
@@ -74,64 +276,11 @@ body {
    ======================================== */
 .js-scroll-target {
     opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
 
 .js-scroll-target.is-active {
     opacity: 1;
     transform: translateY(0);
-}
-
-/* ========================================
-   カード内の各要素
-   ======================================== */
-/* 写真エリア */
-.card-image {
-    width: 100%;
-    height: 240px;
-    background-color: #e5e3dc;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #888;
-    font-weight: bold;
-    letter-spacing: 0.1em;
-}
-
-/* 中身のエリア */
-.card-content {
-    padding: 24px;
-    
-    /* タグ・店名・説明文の間の余白をgapで管理（マージン相殺防止） */
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-/* タグのデザイン */
-.tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.tag {
-    font-size: 0.75rem;
-    font-weight: 600;
-    color: #555;
-    background-color: #f0eee9;
-    padding: 4px 10px;
-    border-radius: 20px;
-    letter-spacing: 0.02em;
-}
-
-.shop-name {
-    font-size: 1.25rem;
-    font-weight: 700;
-}
-
-.shop-description {
-    font-size: 0.92rem;
-    color: #555;
 }
